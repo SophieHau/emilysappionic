@@ -1,0 +1,7 @@
+{
+  "name": "iosEmilysApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
