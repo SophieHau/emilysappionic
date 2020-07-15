@@ -1,0 +1,40 @@
+.card {
+  box-shadow: none !important;
+  text-align: center;
+  font-weight: lighter;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.logo {
+  width: 90px;
+  display: block;
+  margin: auto;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+.signin-btn {
+  --border-color: hotpink;
+  color: hotpink;
+  --border-width: 1px;
+  --background-activated: white;
+  width: 120px;
+  height: 35px;
+}
+
+.register-btn {
+  --border-color: pink;
+  color: pink;
+  --border-width: 1px;
+  --background-activated: white;
+  width: 120px;
+  height: 35px;
+}
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
