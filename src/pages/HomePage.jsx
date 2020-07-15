@@ -3,11 +3,11 @@ import React from "react";
 import Navigation from "../components/navigation/Navigation.component";
 import { Welcome } from "../components/welcome/Welcome.component";
 
-const Home: React.FC = () => {
+const Home = ({ currentUser }) => {
   return (
     <IonPage>
-      <Navigation />
-      <Welcome />
+      <Navigation currentUser={currentUser} />
+      {currentUser ? null : <Welcome currentUser={currentUser} />}
     </IonPage>
   );
 };

@@ -3,9 +3,8 @@ import {IonHeader, IonToolbar, IonMenuButton, IonImg} from '@ionic/react';
 import Logo from '../../assets/icons/logo2.png';
 import './navigation.style.css';
 
-interface NavigationProps { }
 
-const Navigation: React.FC<NavigationProps> = () => {
+const Navigation = () => {
   return (
       <IonHeader className="home-header">
         <IonToolbar>

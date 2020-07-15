@@ -37,6 +37,7 @@ export const Welcome = () => {
                 shape="round"
                 fill="outline"
                 className="signin-btn ion-activatable ripple-parent"
+                href="/signin"
               >
                 Sign in
                 <IonRippleEffect type="unbounded"></IonRippleEffect>
@@ -49,6 +50,7 @@ export const Welcome = () => {
                 shape="round"
                 fill="outline"
                 className="register-btn ion-activatable ripple-parent"
+                href="/register"
               >
                 Register
                 <IonRippleEffect type="unbounded"></IonRippleEffect>
