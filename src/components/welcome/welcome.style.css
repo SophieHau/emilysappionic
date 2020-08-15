@@ -2,8 +2,8 @@
   box-shadow: none !important;
   text-align: center;
   font-weight: lighter;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -37,4 +37,11 @@
 .ripple-parent {
   position: relative;
   overflow: hidden;
+}
+
+.google-sign-in-btn {
+  --border-width: 1px;
+  --background-activated: white;
+  width: 200px;
+  height: 35px;
 }

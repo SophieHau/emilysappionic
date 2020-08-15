@@ -1,18 +1,18 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import "firebase/storage";
-import "firebase/messaging";
-import { colors } from "./assets/js/colorlist.js";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/storage';
+import 'firebase/messaging';
+import { colors } from './assets/js/colorlist.js';
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: "emilys-app-f1604.firebaseapp.com",
-  databaseURL: "https://emilys-app-f1604.firebaseio.com",
-  projectId: "emilys-app-f1604",
-  storageBucket: "emilys-app-f1604.appspot.com",
-  messagingSenderId: "207902982889",
-  appId: "1:207902982889:web:d14790104742e04092e678",
+  authDomain: 'emilys-app-f1604.firebaseapp.com',
+  databaseURL: 'https://emilys-app-f1604.firebaseio.com',
+  projectId: 'emilys-app-f1604',
+  storageBucket: 'emilys-app-f1604.appspot.com',
+  messagingSenderId: '207902982889',
+  appId: '1:207902982889:web:d14790104742e04092e678',
 };
 
 firebase.initializeApp(config);
@@ -21,6 +21,12 @@ export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
 export const storageRef = storage.ref();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
+export const signInWithGoogle = () => {
+  auth.signInWithPopup(provider);
+};
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
@@ -44,8 +50,15 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData,
       });
     } catch (error) {
-      console.log("error creating user", error.message);
+      console.log('error creating user', error.message);
     }
   }
   return userRef;
+};
+
+export const getProfilePicUrl = async (user) => {
+  const currentImagePath = user.imagePath;
+  const currentImageRef = storageRef.child(currentImagePath);
+  const currentImageUrl = await currentImageRef.getDownloadURL();
+  return currentImageUrl;
 };
