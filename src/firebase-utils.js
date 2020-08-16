@@ -22,6 +22,18 @@ export const firestore = firebase.firestore();
 export const storage = firebase.storage();
 export const storageRef = storage.ref();
 
+export let messaging = '';
+
+if (firebase.messaging.isSupported()) {
+  messaging = firebase.messaging();
+  messaging.usePublicVapidKey(
+    'BHOR4XJE1UBzJk7Su1nettzX9QVFh0IxeeujDRQSIa9Cl7Aipd2m3VgOSGTm-YzcF51AcJ1xOjg6z6RjQKWFGdc'
+  );
+  messaging.onMessage((payload) => {
+    console.log('Message received. ', payload);
+  });
+}
+
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => {

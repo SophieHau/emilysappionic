@@ -13,7 +13,7 @@ import {
 } from '@ionic/react';
 import { returnDownBackOutline } from 'ionicons/icons';
 
-export class ChatNav extends React.Component {
+class ChatNav extends React.Component {
   constructor(props) {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -42,12 +42,39 @@ export class ChatNav extends React.Component {
   };
 
   componentDidMount = async () => {
-    const currentUserRef = firestore.doc(
-      `users/${window.localStorage.getItem('currentUser')}`
-    );
-    const currentUserSnap = await currentUserRef.get();
-    const currentUserName = currentUserSnap.data().displayName;
-    this.setState({ currentUserName });
+    if (window.location.search.includes(',')) {
+      const index = window.location.search.indexOf(',');
+      try {
+        const currentUserRef = firestore.doc(
+          `users/${window.location.search.slice(4, index)}`
+        );
+        const currentUserSnap = await currentUserRef.get();
+        const currentUserName = currentUserSnap.data().displayName;
+        this.setState({ currentUserName, group: true });
+      } catch {
+        const currentUserRef = firestore.doc(
+          `users/${window.location.search.slice(index)}`
+        );
+        const currentUserSnap = await currentUserRef.get();
+        const currentUserName = currentUserSnap.data().displayName;
+        this.setState({ currentUserName });
+      }
+    }
+    try {
+      const currentUserRef = firestore.doc(
+        `users/${window.location.search.slice(4)}`
+      );
+      const currentUserSnap = await currentUserRef.get();
+      const currentUserName = currentUserSnap.data().displayName;
+      this.setState({ currentUserName });
+    } catch {
+      const currentUserRef = firestore.doc(
+        `users/${window.localStorage.getItem('currentUser')}`
+      );
+      const currentUserSnap = await currentUserRef.get();
+      const currentUserName = currentUserSnap.data().displayName;
+      this.setState({ currentUserName });
+    }
 
     const currentChatRef = firestore.doc(`chats/${this.state.chatId}`);
     const currentChatSnap = await currentChatRef.get();
@@ -188,3 +215,5 @@ export class ChatNav extends React.Component {
     // );
   }
 }
+
+export default ChatNav;

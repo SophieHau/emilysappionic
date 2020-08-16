@@ -19,7 +19,7 @@ const Home = ({ currentUser }) =>
       </IonFab>
     </IonPage>
   ) : (
-    <IonPage fullscreen>
+    <IonPage>
       <Navigation currentUser={currentUser} />
       {currentUser ? null : <Welcome currentUser={currentUser} />}
     </IonPage>

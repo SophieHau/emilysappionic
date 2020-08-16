@@ -1,104 +1,30 @@
-.wrapper{
-    height:60vh;
-    overflow-y: scroll;
-    position:relative;
-  }
+.card {
+  box-shadow: none !important;
+  text-align: center;
+  font-weight: lighter;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 9%;
+}
 
-  .circle-form{
-    position:fixed;
-    background-color: white;
-    bottom:0;
-    left:0;
-    right:0;
-    z-index:2;
-  }
+.circle-form {
+  position: fixed;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
 
-  @media (min-height: 200px) and (max-height: 239px) {
-    .wrapper {
-        height:30vh;
-    }
-  }
+.input-toolbar {
+  --border-color: white;
+}
 
-  @media (min-height: 240px) and (max-height: 291px) {
-    .wrapper {
-        height:45vh;
-    }
-  }
-
-  @media (min-height: 292px) and (max-height: 327px) {
-    .wrapper {
-        height:55vh;
-    }
-  }
-
-  @media  (min-height: 386px) and (max-height: 556px) {
-    .wrapper {
-        height:66vh;
-    }
-  }
-
-  @media  (min-height: 557px) and (max-height: 639px) {
-    .wrapper {
-        height:77vh;
-    }
-  }
-
-  @media (min-height: 640px) and (max-height: 666px) {
-    .wrapper {
-        height:79vh;
-    }
-  }
-
-  @media (min-height: 667px) and (max-height: 730px) {
-    .wrapper {
-        height:80vh;
-    }
-  }
-
-  @media (min-height: 731px) and (max-height: 735px) {
-    .wrapper {
-        height:81vh;
-    }
-  }
-
-  @media (min-height: 736px) and (max-height: 811px) {
-    .wrapper {
-        height:81vh;
-    }
-  }
-
-  @media (min-height: 812px) and (max-height: 822px) {
-    .wrapper {
-        height:83vh;
-    }
-  }
-
-  @media (min-height: 823px) and (max-height: 980px) {
-    .wrapper {
-        height:83vh;
-    }
-  }
-
-  @media (min-height: 823px) and (max-height: 980px) {
-    .wrapper {
-        height:83vh;
-    }
-  }
-
-  @media (min-height: 981px) and (max-height: 1023px){
-    .wrapper {
-        height:83vh;
-    }
-  }
-
-  @media (min-height: 1024px) and (max-height:1365px) {
-    .wrapper {
-        height:87vh;
-    }
-  }
-
-  @media only screen and (min-height: 1366px) {
-    .wrapper {
-        height:86vh;
-    }
-  }
+.send-button {
+  --padding-bottom: 0;
+  --paddind-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
+}

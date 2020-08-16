@@ -138,7 +138,7 @@ class ChatList extends React.Component {
                 className="mr3"
               >
                 <IonAvatar className="no-padding" slot="start">
-                  <IonImg className="no-padding" src={chat.image} />
+                  <IonImg className="no-padding " src={chat.image} />
                 </IonAvatar>
                 <IonText className="fw3">{chat.name}</IonText>
               </IonItem>

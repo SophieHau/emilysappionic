@@ -1,6 +1,6 @@
 import React from 'react';
-import { ChatBoard } from '../components/chatboard/chatboard.component';
-import { ChatNav } from '../components/chatnav/chatnav.component';
+import ChatBoard from '../components/chatboard/chatboard.component';
+import ChatNav from '../components/chatnav/chatnav.component';
 import { IonPage } from '@ionic/react';
 
 class ChatPage extends React.Component {
@@ -10,7 +10,7 @@ class ChatPage extends React.Component {
     return (
       <IonPage>
         <ChatNav chatId={id} />
-        {/* <ChatBoard chatId={id} /> */}
+        <ChatBoard chatId={id} />
       </IonPage>
     );
   }
