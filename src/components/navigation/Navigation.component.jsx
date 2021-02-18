@@ -7,12 +7,7 @@ const Navigation = () => {
   return (
     <IonHeader className="home-header">
       <IonToolbar>
-        <IonImg src={Logo} className="h2 w2 ml2"></IonImg>
-        <IonMenuButton
-          slot="end"
-          autoHide={false}
-          color="medium"
-        ></IonMenuButton>
+        <IonImg src={Logo} className="h2 w2 ml2" />
       </IonToolbar>
     </IonHeader>
   );

@@ -32,6 +32,7 @@ const App = () => {
 
   const loadCurrentUser = () => {
     auth.onAuthStateChanged(async (userAuth) => {
+      console.log(userAuth);
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot((snapShot) => {
@@ -43,7 +44,6 @@ const App = () => {
         });
       } else {
         setCurrentUser(userAuth);
-        window.localStorage.setItem('currentUser', userAuth.id);
       }
     });
   };

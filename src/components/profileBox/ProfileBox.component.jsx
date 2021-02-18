@@ -42,13 +42,17 @@ class ProfileBox extends React.Component {
               </IonThumbnail>
             </IonCol>
             <IonCol size="6" className="no-padding ion-align-items-center">
-              <IonText className="fw3 f4">
+              <IonText className="fw3 f3">
                 Hi {this.state.currentUser.displayName}!
               </IonText>
             </IonCol>
             <IonCol className="no-padding ion-justify-content-start ion-align-items-center">
-              <IonButton fill="clear" color="medium" href="/picture">
-                <IonIcon icon={createOutline} />
+              <IonButton fill="clear" href="/picture">
+                <IonIcon
+                  style={{ color: 'pink' }}
+                  size="large"
+                  icon={createOutline}
+                />
               </IonButton>
             </IonCol>
           </IonRow>

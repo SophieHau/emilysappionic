@@ -10,8 +10,10 @@ import {
   IonIcon,
   IonThumbnail,
   IonText,
+  IonBackButton,
+  IonButtons,
 } from '@ionic/react';
-import { returnDownBackOutline } from 'ionicons/icons';
+import { chevronBackOutline } from 'ionicons/icons';
 
 class ChatNav extends React.Component {
   constructor(props) {
@@ -115,104 +117,30 @@ class ChatNav extends React.Component {
     let { chatName, currentUserName, chatImage, chatId } = this.state;
     chatName = chatName.toString();
     chatName = chatName.replace(currentUserName, '@You');
-
     if (chatName.length > 25) {
       chatName = chatName.slice(0, 20);
-      return (
-        <IonHeader className="home-header">
-          <IonToolbar>
-            <IonIcon
-              href="/"
-              slot="start"
-              size="large"
-              icon={returnDownBackOutline}
-            />
-            <IonThumbnail slot="start" className="mh2">
-              <IonImg
-                className="ba b--black-10 br-100"
-                src={chatImage || defaultPic}
-              />
-            </IonThumbnail>
-            <IonText>{chatName}...</IonText>
-            <IonMenuButton
-              slot="end"
-              autoHide={false}
-              color="medium"
-            ></IonMenuButton>
-          </IonToolbar>
-        </IonHeader>
-        //     <nav className="dt w-90 center pt2 mb3 ml2 bb b--black-05">
-        //     <div className="dtc mr3 fl v-mid f6">
-        //         <Link to={"/"}><img src={backIcon} className="mt1 br-100 v-mid mr2" style={{width: '25px', height: '25px'}} alt="arrow"/></Link>
-        //         <img src={chatImage || defaultPic} className="mt1 h2 w2 br-100 v-mid" alt="profile" style={{objectFit: 'cover'}}/>
-        //     </div>
-        //     <div className="dtc v-mid fl">
-        //         <p className="dark-gray f6 pa0 mr3">{chatName}...</p>
-        //     </div>
-        //     {this.state.group
-        //         ?
-        //             <div className="dtc fr v-mid f6 mt2">
-        //                 <Link to={`/group-picture/${chatId}`}><img src={editIcon} className="v-mid pt1" style={{width: '25px', height: '25px'}} alt="arrow"/></Link>
-        //             </div>
-        //         :
-        //             null
-        //     }
-        // </nav>
-      );
     }
 
     return (
       <IonHeader className="home-header">
         <IonToolbar>
-          <a slot="start" href="/" className="link black">
-            <IonIcon size="large" icon={returnDownBackOutline} />
-          </a>
-          <IonThumbnail slot="start" className="mh2">
-            <IonImg className="ba b--black-10 br-100" src={chatImage} />
+          <IonButtons slot="start">
+            <IonBackButton color="medium" defaultHref="/" text="" />
+          </IonButtons>
+          <IonThumbnail slot="start" className="mt2">
+            <IonImg
+              style={{ width: '80%', height: '80%' }}
+              className="ba b--black-10 br-100 mh1"
+              src={chatImage}
+            />
           </IonThumbnail>
-          <IonText>{chatName}</IonText>
-          <IonMenuButton
-            slot="end"
-            autoHide={false}
-            color="medium"
-          ></IonMenuButton>
+          <IonText color="medium" slot="start">
+            {chatName}
+          </IonText>
+          <IonMenuButton slot="end" autoHide={false} color="medium" />
         </IonToolbar>
       </IonHeader>
     );
-    //   <nav className="dt w-90 center pt2 mb3 ml2 bb b--black-05">
-    //     <div className="dtc mr3 fl v-mid f6">
-    //       <Link to={{ pathname: '/' }}>
-    //         <img
-    //           src={backIcon}
-    //           className="mt1 br-100 v-mid mr2"
-    //           style={{ width: '25px', height: '25px' }}
-    //           alt="arrow"
-    //         />
-    //       </Link>
-    //       <img
-    //         src={chatImage || defaultPic}
-    //         className="mt1 h2 w2 br-100 v-mid"
-    //         alt="profile"
-    //         style={{ objectFit: 'cover' }}
-    //       />
-    //     </div>
-    //     <div className="dtc v-mid fl">
-    //       <p className="dark-gray f6 pa0 mr3">{chatName}</p>
-    //     </div>
-    //     {this.state.group ? (
-    //       <div className="dtc fr v-mid f6 mt2">
-    //         <Link to={`/group-picture/${chatId}`}>
-    //           <img
-    //             src={editIcon}
-    //             className="v-mid pt1"
-    //             style={{ width: '25px', height: '25px' }}
-    //             alt="arrow"
-    //           />
-    //         </Link>
-    //       </div>
-    //     ) : null}
-    //   </nav>
-    // );
   }
 }
 

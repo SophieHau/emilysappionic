@@ -13,9 +13,11 @@ import {
   IonCard,
   IonToolbar,
   IonButton,
-  IonImg,
+  IonFabButton,
+  IonIcon,
+  IonInput,
 } from '@ionic/react';
-import sendIcon from '../../assets/icons/sendicon.jpg';
+import { send } from 'ionicons/icons';
 
 class ChatBoard extends React.Component {
   constructor(props) {
@@ -73,12 +75,12 @@ class ChatBoard extends React.Component {
         });
       });
 
-    // this.scrollToBottom();
+    this.scrollToBottom();
     this.saveToken();
   };
 
   componentDidUpdate = () => {
-    // this.scrollToBottom();
+    this.scrollToBottom();
   };
 
   sortArray = (array) => {
@@ -176,9 +178,9 @@ class ChatBoard extends React.Component {
     this.setState({ [name]: value });
   };
 
-  //   scrollToBottom = () => {
-  //     this.messagesEnd.scrollIntoView();
-  //   };
+  scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView();
+  };
 
   onFocus = (event) => {
     event.target.setAttribute('autocomplete', 'off');
@@ -239,7 +241,7 @@ class ChatBoard extends React.Component {
     this.sortArray(messages);
     return (
       <IonContent className="mw6">
-        <IonCard className="card">
+        <IonCard className="card mb4">
           {messages.map((message) => {
             if (message.author === currentUser.displayName) {
               return (
@@ -284,28 +286,38 @@ class ChatBoard extends React.Component {
             }
           })}
         </IonCard>
-        <IonFooter className="ion-no-border circle-form mw6 fn bg-white center dib">
-          <IonToolbar className="input-toolbar mb2 mt2 ba b--black-20 br4 w-90 center">
-            <input
+        <div
+          style={{ float: 'left', clear: 'both' }}
+          ref={(el) => {
+            this.messagesEnd = el;
+          }}
+        ></div>
+        <IonFooter className="ion-no-border circle-form mw6 bg-white ml1">
+          <IonToolbar className="input-toolbar">
+            <IonInput
               id="messageInput"
               name="messageInput"
-              className="f6 w-80 ml1 input-reset ba b--white-20 outline-transparent"
-              type="text"
               value={this.state.messageInput}
               placeholder="Type a message..."
-              onChange={this.handleChange}
+              onIonChange={this.handleChange}
+              clearInput
               autoFocus
               onFocus={this.onFocus}
-            />
-            <button
+              className="f5 input-reset outline-transparent b--black-20 br4 ba w-100"
+              color="medium"
+            ></IonInput>
+
+            <IonFabButton
               slot="end"
-              fill="clear"
               type="submit"
+              color="white"
               onClick={this.createMessageDocument}
-              className="send-button no-padding mr1 fr bg-transparent ba b--white-20 outline-transparent v-mid"
+              size="small"
+              style={{ marginLeft: 5 }}
+              fill="clear"
             >
-              <IonImg className="w2 h2" src={sendIcon} alt="paper plane" />
-            </button>
+              <IonIcon style={{ width: '0.8em', color: 'pink' }} icon={send} />
+            </IonFabButton>
           </IonToolbar>
         </IonFooter>
       </IonContent>

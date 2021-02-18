@@ -13,8 +13,8 @@ const Home = ({ currentUser }) =>
       <ProfileBox currentUser={currentUser} />
       <ChatList currentUser={currentUser} />
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton color="light" href="/createchat">
-          <IonIcon icon={chatboxEllipsesOutline} />
+        <IonFabButton fill="clear" color="white" href="/createchat">
+          <IonIcon style={{ color: 'pink' }} icon={chatboxEllipsesOutline} />
         </IonFabButton>
       </IonFab>
     </IonPage>
